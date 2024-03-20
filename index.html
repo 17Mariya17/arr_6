@@ -7,8 +7,9 @@
   </head>
   <body>
     <h1>ДЗ 18. Масив</h1>
+
     <script>
-      //Створюємо масив.
+      //ДЗ 18: Створюємо масив.
       const array_5 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       document.write("<b> Елементи масиву: </b>" + array_5 + "<br>");
       //Користувач задає елемент для видалення.
@@ -21,6 +22,30 @@
       );
       //Оновлений масив.
       document.write("<b> Оновлений масив: </b>" + filtered_array + "<br>");
+
+      //ДЗ 19: Реалізуйте функцію generateKey
+      //Користувач задає елемент для видалення.
+      let key_length = parseInt(prompt("Введіть довжину ключа"));
+      //Функція генерації коду
+      const createRandomString = (length) => {
+        const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+        let key = "";
+        const randomArray = new Uint8Array(length);
+        crypto.getRandomValues(randomArray);
+        randomArray.forEach((number) => {
+          key += characters[number % characters.length];
+        });
+        document.write(
+          "<h1>ДЗ 19. Реалізуйте функцію generateKey</h1> " +
+            "<b> Масив: </b>" +
+            characters +
+            "<br>" +
+            "<b> Оновлений масив: </b>" +
+            key
+        );
+      };
+      //Виклик функції
+      createRandomString(key_length);
     </script>
   </body>
 </html>
